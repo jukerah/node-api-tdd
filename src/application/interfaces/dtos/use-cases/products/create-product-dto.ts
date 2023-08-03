@@ -1,9 +1,18 @@
-import { ProductEntity } from "../../../../../entities/product-entity"
-import { IInputCreateDTO } from "../../repositories/products/create-product-dto"
-
-interface IOutputCreateDTO {
-  result: ProductEntity
-  message: string
+export interface IInputCreateDTO {
+  name: string
+  description: string
+  price: number
+  amount: number
 }
 
-export { IInputCreateDTO, IOutputCreateDTO }
+export interface IOutputCreateDTO {
+  code: number
+  result: {
+    productId: string
+    name: string
+    description: string
+    price: number
+    amount: number
+  }
+  message: string
+}

@@ -1,6 +1,5 @@
-import { ProductEntity } from "../../../entities/product-entity"
-import { InputCreateDTO } from "../dtos/repositories/products/create-product-dto"
+import { IInputCreateDTO, IOutputCreateDTO } from "../dtos/repositories/products"
 
-export interface ProductsRepository {
-  create(inputDTO: InputCreateDTO): Promise<ProductEntity>
+export interface IProductsRepository {
+  create(inputDTO: IInputCreateDTO): Promise<IOutputCreateDTO>
 }

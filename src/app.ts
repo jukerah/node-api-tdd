@@ -3,7 +3,7 @@ import "express-async-errors"
 import cors from "./libs/cors"
 import rateLimit from "./libs/express-rate-limit"
 import router from "./infra/routes"
-import appMiddleware from "./application/middlewares/app-middleware"
+import { appMiddleware } from "./application/middlewares"
 
 const app = express()
 

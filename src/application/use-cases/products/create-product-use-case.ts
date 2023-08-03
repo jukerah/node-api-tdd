@@ -1,22 +1,29 @@
-import { ICreateProductUseCase } from "../../interfaces/use-cases/products/create-product-use-case"
-import { IInputCreateDTO, IOutputCreateDTO } from "../../interfaces/dtos/use-cases/products/create-product-dto"
-import { ProductsRepository } from "../../interfaces/repositories/products-repository"
+import { ICreateProductUseCase } from "../../interfaces/use-cases"
+import { IInputCreateDTO } from "../../interfaces/dtos/use-cases/products"
+import { IProductsRepository } from "../../interfaces/repositories"
 import { ProductEntity } from "../../../entities/product-entity"
 
 export class CreateProductUseCase implements ICreateProductUseCase {
-  constructor(private productRepository: ProductsRepository) {}
+	constructor(private productRepository: IProductsRepository) {}
 
-  async execute(input: IInputCreateDTO): Promise<IOutputCreateDTO> {
-    try {
-      const createProduct = ProductEntity.create(input)
-      const product = await this.productRepository.create(createProduct)
-      const output = {
-        result: product,
-        message: "Produto cadastrado com sucesso!"
-      }
-      return output
-    } catch (error: any) {
-      throw new Error(error.message)
-    }
-  }
+	async execute(input: IInputCreateDTO) {
+		try {
+			const createProduct = ProductEntity.create(input)
+			const product = await this.productRepository.create(createProduct)
+			const output = {
+				code: 201,
+				result: product,
+				message: "Produto cadastrado com sucesso!"
+			}
+			return output
+		} catch (error: any) {
+			return {
+				code: 400,
+				message: {
+					errorCode: "PARAMS_ERROR",
+					error: error.message
+				}
+			}
+		}
+	}
 }

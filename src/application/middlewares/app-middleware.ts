@@ -1,6 +1,6 @@
-import { Request, Response, ErrorRequestHandler } from "../../infra/http-config"
+import { Request, Response, ErrorRequestHandler } from "../../infra/http/config"
 
-const appMiddleware = (request: Request, response: Response, error: ErrorRequestHandler) => {
+export const appMiddleware = (request: Request, response: Response, error: ErrorRequestHandler) => {
 	if (error instanceof Error) {
 		return response.status(400).json({
 			message: error.message,
@@ -11,5 +11,3 @@ const appMiddleware = (request: Request, response: Response, error: ErrorRequest
 		message: "Internal server error",
 	})
 }
-
-export default appMiddleware

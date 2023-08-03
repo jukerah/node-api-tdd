@@ -1,11 +1,15 @@
-import { ProductEntity } from "../../entities/product-entity"
+interface Product {
+  productId: string
+  name: string
+  description: string
+  price: number
+  amount: number
+}
 
 interface InMemoryDatabase {
-  products: ProductEntity[]
+  products: Product[]
 }
 
-const inMemoryDatabase: InMemoryDatabase = {
-  products: []
+export const inMemoryDatabase: InMemoryDatabase = {
+	products: []
 }
-
-export default inMemoryDatabase

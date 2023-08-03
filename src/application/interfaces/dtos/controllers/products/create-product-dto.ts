@@ -1,6 +1,8 @@
-import { Request, Response } from "../../../../../infra/http-config"
+import { Request, Response } from "../../../../../infra/http/config"
+import { IOutputErrorDTO } from "../../errors/use-cases"
+import { IOutputCreateDTO } from "../../use-cases/products"
 
-interface IRequestCreateDTO extends Request {
+export interface IRequestCreateDTO extends Request {
   body: {
     name: string
     description: string
@@ -9,6 +11,4 @@ interface IRequestCreateDTO extends Request {
   }
 }
 
-type IResponseCreateDTO = Response<string | { message: string }>
-
-export { IRequestCreateDTO, IResponseCreateDTO }
+export type IResponseCreateDTO = Response<IOutputCreateDTO | IOutputErrorDTO>

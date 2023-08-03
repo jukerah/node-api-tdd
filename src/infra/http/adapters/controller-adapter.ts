@@ -1,7 +1,7 @@
-import { Request, Response } from "../http-config"
+import { Request, Response  } from "../config"
 
 export interface Controller {
-  handle(request: Request, response: Response): Promise<any>
+  handle(request: Request, response: Response): Promise<any>;
 }
 
 export const httpControllerAdapter = (controller: Controller) => {
