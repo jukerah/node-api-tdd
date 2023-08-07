@@ -1,3 +1,3 @@
-import { createProductControllerFactory } from "./products/create-product-controller-factory"
+import { createUserControllerFactory } from "./users/create-user-controller-factory"
 
-export { createProductControllerFactory }
+export { createUserControllerFactory }

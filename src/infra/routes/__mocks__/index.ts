@@ -1,8 +1,8 @@
 import { Router } from "../../http/config"
-import { createProductControllerFactoryMock } from "../../../application/factories/__mocks__/controllers"
+import { createUserControllerFactoryMock } from "../../../application/factories/__mocks__/controllers"
 
 const routerMock = Router()
 
-routerMock.post("/api/v1/product/create", createProductControllerFactoryMock())
+routerMock.post("/api/v1/user/create", createUserControllerFactoryMock())
 
 export default routerMock

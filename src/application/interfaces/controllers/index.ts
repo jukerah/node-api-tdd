@@ -1,3 +1,3 @@
-import { ICreateProductController } from "./products/create-product-controller"
+import { ICreateUserController } from "./users/create-user-controller"
 
-export { ICreateProductController }
+export { ICreateUserController }

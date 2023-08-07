@@ -1,3 +1,3 @@
-import { CreateProductUseCase } from "./products/create-product-use-case"
+import { CreateUserUseCase } from "./users/create-user-use-case"
 
-export { CreateProductUseCase } 
+export { CreateUserUseCase } 

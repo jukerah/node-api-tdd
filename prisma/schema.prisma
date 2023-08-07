@@ -7,10 +7,11 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Products {
-  productId   String @id
-  name        String
-  description String
-  price       Int
-  amount      Int
+model Users {
+  userId            String @id
+  fullName          String
+  age               Int
+  username          String
+  password          String
+  profilePictureUrl String
 }

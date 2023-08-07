@@ -1,3 +1,3 @@
-import { PrismaProductsRepository } from "./products-repository"
+import { PrismaUsersRepository } from "./users-repository"
 
-export { PrismaProductsRepository }
+export { PrismaUsersRepository }

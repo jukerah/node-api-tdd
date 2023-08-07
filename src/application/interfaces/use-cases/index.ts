@@ -1,3 +1,3 @@
-import { ICreateProductUseCase } from "./products/create-product-use-case"
+import { ICreateUserUseCase } from "./users/create-user-use-case"
 
-export { ICreateProductUseCase }
+export { ICreateUserUseCase }

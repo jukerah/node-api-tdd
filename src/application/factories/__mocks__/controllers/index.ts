@@ -1,3 +1,3 @@
-import { createProductControllerFactoryMock } from "./products/create-product-controller-factory"
+import { createUserControllerFactoryMock } from "./users/create-user-controller-factory"
 
-export { createProductControllerFactoryMock }
+export { createUserControllerFactoryMock }

@@ -1,8 +1,8 @@
 import { Router } from "../http/config"
-import { createProductControllerFactory } from "../../application/factories/controllers"
+import { createUserControllerFactory } from "../../application/factories/controllers"
 
 const router = Router()
 
-router.post("/api/v1/product/create", createProductControllerFactory())
+router.post("/api/v1/user/create", createUserControllerFactory())
 
 export default router

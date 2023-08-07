@@ -1,3 +1,3 @@
-import { CreateProductDTO } from "./products/create-product-dto"
+import { CreateUserDTO } from "./users/create-user-dto"
 
-export { CreateProductDTO }
+export { CreateUserDTO }

@@ -1,3 +1,3 @@
-import { CreateProductController } from "./products/create-product-controller"
+import { CreateUserController } from "./users/create-user-controller"
 
-export { CreateProductController }
+export { CreateUserController }

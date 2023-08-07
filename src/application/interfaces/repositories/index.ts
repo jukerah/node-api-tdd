@@ -1,3 +1,3 @@
-import { IProductsRepository } from "./products-repository"
+import { IUsersRepository } from "./users-repository"
 
-export { IProductsRepository }
+export { IUsersRepository }

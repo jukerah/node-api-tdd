@@ -4,6 +4,7 @@ import cors from "./libs/cors"
 import rateLimit from "./libs/express-rate-limit"
 import router from "./infra/routes"
 import { appMiddleware } from "./application/middlewares"
+import "dotenv/config"
 
 const app = express()
 

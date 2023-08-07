@@ -1,7 +1,7 @@
-import { randomUUID } from "./random-uuid"
+import { crypt } from "./crypt"
 import { Validate } from "./validate"
 
 export {
-	randomUUID,
+	crypt,
 	Validate
 }
