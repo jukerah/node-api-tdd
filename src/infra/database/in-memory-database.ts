@@ -1,4 +1,4 @@
-interface User {
+export interface IUser {
   userId: string
   fullName: string
   age: number
@@ -8,7 +8,7 @@ interface User {
 }
 
 interface InMemoryDatabase {
-  users: User[]
+  users: IUser[]
 }
 
 export const inMemoryDatabase: InMemoryDatabase = {
