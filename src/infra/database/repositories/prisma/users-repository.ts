@@ -18,15 +18,15 @@ export class PrismaUsersRepository implements IUsersRepository {
 	}
 
 	async find(input: IInputFindDTO) {
-		const where: any = {}
+		const params: any = {}
 
 		for (const key of Object.keys(input) as (keyof IInputFindDTO)[]) {
 			if (input[key] !== undefined) {
-				where[key] = input[key]
+				params[key] = input[key]
 			}
 		}
 
-		const output = await prisma.users.findFirst({ where: where as IInputFindDTO })
+		const output = await prisma.users.findFirst({ where: params as IInputFindDTO })
 		return output ? [output] : []
 	}
 }
