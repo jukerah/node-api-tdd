@@ -10,17 +10,16 @@ export class CreateUserUseCase implements ICreateUserUseCase {
 		try {
 			const createUser = UserEntity.create(input)
 			const user = await this.userRepository.create(createUser)
-			const output = {
+			return {
 				code: 201,
 				result: user,
 				message: "Usuário cadastrado com sucesso!"
 			}
-			return output
 		} catch (error: any) {
 			return {
-				code: 400,
+				code: 503,
 				message: {
-					errorCode: "PARAMS_ERROR",
+					errorCode: "INTERNAL_ERROR",
 					error: error.message
 				}
 			}

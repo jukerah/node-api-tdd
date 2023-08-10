@@ -9,5 +9,6 @@ export default {
 	transform: {
 		"^.+\\.(t|j)sx?$": ["@swc/jest"],
 	},
-	testRegex: ".test.ts"
+	testRegex: ".test.ts",
+	modulePathIgnorePatterns: ["/node_modules/", "/dist/"],
 }

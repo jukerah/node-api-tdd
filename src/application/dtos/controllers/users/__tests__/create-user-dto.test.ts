@@ -1,12 +1,13 @@
 import { IInputCreateDTO } from "../../../../interfaces/dtos/use-cases/users"
 import { IRequestCreateDTO } from "../../../../interfaces/dtos/controllers/users"
+import { validateMock } from "../../../../factories/__mocks__/helpers"
 import { CreateUserDTO } from "../create-user-dto"
 
 describe("Create user dto", () => {
 	let createUserDTO: CreateUserDTO
 
 	beforeAll(() => {
-		createUserDTO = new CreateUserDTO()
+		createUserDTO = new CreateUserDTO(validateMock)
 	})
 
 	it("should be able to input create user", async () => {

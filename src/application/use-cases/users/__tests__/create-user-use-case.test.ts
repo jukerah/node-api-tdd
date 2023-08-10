@@ -32,23 +32,22 @@ describe("Create user use case", () => {
 		expect(sut.result.profilePictureUrl).toEqual(input.profilePictureUrl)
 	})
 
-	it("should be able to create user", async () => {
-		try {
-			const input: IInputCreateDTO = {
-				fullName: "Full Name",
-				age: 18,
-				username: "username",
-				password: "12345678",
-				profilePictureUrl: "http://exemplo.com/profile.png"
-			}
-			const usersRepository: any = ""
-			const invalidCreateUserUseCase = new CreateUserUseCase(usersRepository)
-			await invalidCreateUserUseCase.execute(input)
-		} catch (error: any) {
-      
-			const sut = error
-      
-			expect(sut.message).toEqual("this.usersRepository.create is not a function")
+	it("should be able to return error when params is empty", async () => {
+		const input: any = {
+			age: 18,
+			username: "username",
+			password: "12345678",
+			profilePictureUrl: "http://exemplo.com/profile.png"
 		}
+
+		const sut = await createUserUseCase.execute(input)
+
+		expect(sut).toEqual({
+			code: 503,
+			message: {
+				error: "Nome completo é obrigatório!",
+				errorCode: "INTERNAL_ERROR"
+			}
+		})
 	})
 })
