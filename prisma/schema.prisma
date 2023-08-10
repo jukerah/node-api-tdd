@@ -8,10 +8,12 @@ datasource db {
 }
 
 model Users {
-  userId            String @id
-  fullName          String
-  age               Int
-  username          String
-  password          String
-  profilePictureUrl String
+  userId            String @id @map("USER_ID")
+  fullName          String @map("FULL_NAME")
+  age               Int    @map("AGE")
+  username          String @map("USERNAME")
+  password          String @map("PASSWORD")
+  profilePictureUrl String @map("PROFILE_PICTURE_URL")
+
+  @@map("USERS")
 }
