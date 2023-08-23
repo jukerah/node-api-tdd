@@ -5,10 +5,13 @@ import rateLimit from "./libs/express-rate-limit"
 import router from "./infra/routes"
 import { appMiddleware } from "./application/middlewares"
 import "dotenv/config"
+import swaggerUi from "swagger-ui-express"
+import swaggerDocs from "./swagger/bundled-swagger.json"
 
 const app = express()
 
 app.use(express.json())
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs))
 app.use(cors)
 app.use(rateLimit)
 app.use(router)

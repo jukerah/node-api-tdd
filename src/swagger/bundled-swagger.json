@@ -1,0 +1,89 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "REST API",
+    "description": "API para criação de usuário"
+  },
+  "host": "localhost:3030",
+  "basePath": "/",
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "paths": {
+    "/api/v1/user/create": {
+      "post": {
+        "description": "Create new user",
+        "parameters": [
+          {
+            "name": "Parameters",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "fullName": {
+                  "type": "string",
+                  "description": "Nome completo do usuário",
+                  "example": "Nome de Exemplo"
+                },
+                "age": {
+                  "type": "number",
+                  "description": "Idade do usuário",
+                  "example": 18
+                },
+                "username": {
+                  "type": "string",
+                  "description": "Nome de usuário",
+                  "example": "exemplo"
+                },
+                "password": {
+                  "type": "string",
+                  "description": "Senha do usuário",
+                  "example": "12345678"
+                },
+                "profilePictureUrl": {
+                  "type": "string",
+                  "description": "URL da foto de perfil do usuário",
+                  "example": "https://exemplo.com/exemplo.jpg"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "should be able to create user",
+            "examples": {
+              "application/json": {
+                "code": 201,
+                "message": "Usuário cadastrado com sucesso!",
+                "result": {
+                  "userId": "dc442be1-642a-48b6-b8b0-7b6208d23c35",
+                  "fullName": "Full Name",
+                  "age": 18,
+                  "username": "username",
+                  "password": "12345678",
+                  "profilePictureUrl": "http://exemplo.com/profile.png"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "should be able to return error when create user parameters are empty",
+            "examples": {
+              "application/json": {
+                "code": 400,
+                "message": {
+                  "error": "Nome completo é obrigatório!",
+                  "errorCode": "PARAMS_ERROR"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

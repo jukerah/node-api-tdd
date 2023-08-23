@@ -1,0 +1,14 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "REST API",
+    "description": "API para criação de usuário"
+  },
+  "host": "localhost:3030",
+  "basePath": "/",
+  "schemes": ["http", "https"],
+  "paths": {
+    "$ref": "./users/create-user.json"
+  }
+}

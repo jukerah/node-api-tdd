@@ -1,6 +1,7 @@
-import { Request, Response, ErrorRequestHandler } from "../../infra/http/config"
+import { Request, Response, ErrorRequestHandler, NextFunction } from "../../infra/http/config"
 
-export const appMiddleware = (request: Request, response: Response, error: ErrorRequestHandler) => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export const appMiddleware = (error: ErrorRequestHandler, request: Request, response: Response, next: NextFunction) => {
 	if (error instanceof Error) {
 		return response.status(400).json({
 			message: error.message,

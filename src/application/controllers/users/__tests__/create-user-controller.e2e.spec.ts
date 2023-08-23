@@ -2,7 +2,7 @@ import { app } from "../../../../__mocks__/app"
 import request from "supertest"
 
 describe("Create user controller", () => {
-	it("Should be able to validate create user", async () => {		
+	it("should be able to create user", async () => {		
 		const sut = await request(app).post("/api/v1/user/create").send({
 			fullName: "Full Name",
 			age: 18,
@@ -22,7 +22,7 @@ describe("Create user controller", () => {
 		expect(sut.body.result.profilePictureUrl).toEqual("http://exemplo.com/profile.png")
 	})
 
-	it("Should be able to return error when params is empty", async () => {		
+	it("should be able to return error when create user parameters are empty", async () => {		
 		const sut = await request(app).post("/api/v1/user/create").send({
 			age: 18,
 			username: "username",
