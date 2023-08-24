@@ -51,7 +51,7 @@
                 "fullName": "Full Name",
                 "age": 18,
                 "username": "username",
-                "password": "12345678",
+                "password": "$2b$08$di9F6fwynlJWsorZKQIuJu5XBBfw0r94AvCEy3.RHUj/xb0orSdyy",
                 "profilePictureUrl": "https://exemplo.com/profile.png"
               }
             }

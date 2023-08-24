@@ -4,11 +4,11 @@
  */
 
 export default {
-	clearMocks: true,
-	coverageProvider: "v8",
-	transform: {
-		"^.+\\.(t|j)sx?$": ["@swc/jest"],
-	},
-	testRegex: ".test.ts",
-	modulePathIgnorePatterns: ["/node_modules/", "/dist/"],
+  clearMocks: true,
+  coverageProvider: "v8",
+  transform: {
+    "^.+\\.(t|j)sx?$": ["@swc/jest"]
+  },
+  testRegex: ".test.ts",
+  modulePathIgnorePatterns: ["/node_modules/", "/dist/"]
 }

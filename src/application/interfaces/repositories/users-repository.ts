@@ -1,11 +1,15 @@
 import {
-	IInputCreateDTO,
-	IOutputCreateDTO,
-	IInputFindDTO,
-	IOutputFindDTO 
+  IInputCreateUserRepositoryDTO,
+  IOutputCreateUserRepositoryDTO,
+  IInputFindUserRepositoryDTO,
+  IOutputFindUserRepositoryDTO
 } from "../dtos/repositories/users"
 
 export interface IUsersRepository {
-  create(inputDTO: IInputCreateDTO): Promise<IOutputCreateDTO>
-  find(inputDTO: IInputFindDTO): Promise<IOutputFindDTO>
+  create(
+    inputDTO: IInputCreateUserRepositoryDTO
+  ): Promise<IOutputCreateUserRepositoryDTO>
+  find(
+    inputDTO: IInputFindUserRepositoryDTO
+  ): Promise<IOutputFindUserRepositoryDTO>
 }

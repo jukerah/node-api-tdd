@@ -1,7 +1,7 @@
-export interface IOutputErrorDTO {
+export interface IOutputUseCaseErrorDTO {
   code: number
   message: {
-    errorCode: string,
+    errorCode: string
     error: string
   }
 }

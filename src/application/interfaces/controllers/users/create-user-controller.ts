@@ -1,5 +1,11 @@
-import { IRequestCreateDTO, IResponseCreateDTO } from "../../dtos/controllers/users"
+import {
+  IRequestCreateUserControllerDTO,
+  IResponseCreateUserControllerDTO
+} from "../../dtos/controllers/users"
 
 export interface ICreateUserController {
-  handle(request: IRequestCreateDTO, response: IResponseCreateDTO): Promise<IResponseCreateDTO>
+  handle(
+    request: IRequestCreateUserControllerDTO,
+    response: IResponseCreateUserControllerDTO
+  ): Promise<IResponseCreateUserControllerDTO>
 }

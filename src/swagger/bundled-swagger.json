@@ -7,10 +7,7 @@
   },
   "host": "localhost:3030",
   "basePath": "/",
-  "schemes": [
-    "http",
-    "https"
-  ],
+  "schemes": ["http", "https"],
   "paths": {
     "/api/v1/user/create": {
       "post": {
@@ -65,7 +62,7 @@
                   "age": 18,
                   "username": "username",
                   "password": "12345678",
-                  "profilePictureUrl": "http://exemplo.com/profile.png"
+                  "profilePictureUrl": "https://exemplo.com/profile.png"
                 }
               }
             }

@@ -1,16 +1,16 @@
-export interface IInputCreateDTO {
+export interface IInputCreateUserEntityDTO {
   fullName: string
   age: number
   username: string
   password: string
-	profilePictureUrl: string
+  profilePictureUrl: string
 }
 
-export interface IOutputCreateDTO {
+export interface IOutputCreateUserEntityDTO {
   userId: string
   fullName: string
   age: number
   username: string
   password: string
-	profilePictureUrl: string
+  profilePictureUrl: string
 }

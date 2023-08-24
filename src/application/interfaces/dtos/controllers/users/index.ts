@@ -1,3 +1,6 @@
-import { IRequestCreateDTO, IResponseCreateDTO } from "./create-user-dto"
+import {
+  IRequestCreateUserControllerDTO,
+  IResponseCreateUserControllerDTO
+} from "./create-user-controller-dto"
 
-export { IRequestCreateDTO, IResponseCreateDTO }
+export { IRequestCreateUserControllerDTO, IResponseCreateUserControllerDTO }

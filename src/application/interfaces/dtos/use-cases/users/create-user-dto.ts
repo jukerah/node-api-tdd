@@ -1,13 +1,14 @@
-export interface IInputCreateDTO {
+export interface IInputCreateUserUseCaseDTO {
   fullName: string
   age: number
   username: string
   password: string
-	profilePictureUrl: string
+  profilePictureUrl: string
 }
 
-export interface IOutputCreateDTO {
+export type IOutputCreateUserUseCaseDTO = {
   code: number
+  message: string
   result: {
     userId: string
     fullName: string
@@ -16,5 +17,4 @@ export interface IOutputCreateDTO {
     password: string
     profilePictureUrl: string
   }
-  message: string
 }

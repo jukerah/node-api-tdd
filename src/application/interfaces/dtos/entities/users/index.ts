@@ -1,3 +1,6 @@
-import { IInputCreateDTO, IOutputCreateDTO } from "./create-user-dto"
+import {
+  IInputCreateUserEntityDTO,
+  IOutputCreateUserEntityDTO
+} from "./create-user-dto"
 
-export { IInputCreateDTO, IOutputCreateDTO }
+export { IInputCreateUserEntityDTO, IOutputCreateUserEntityDTO }

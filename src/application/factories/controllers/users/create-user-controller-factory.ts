@@ -6,12 +6,12 @@ import { CreateUserUseCase } from "../../../use-cases"
 import { validate } from "../../helpers"
 
 export const createUserControllerFactory = () => {
-	const userRepository = new PrismaUsersRepository()
-	const createUserUseCase = new CreateUserUseCase(userRepository)
-	const createUserController = new CreateUserController(
-		new CreateUserDTO(validate),
-		createUserUseCase
-	)
-	
-	return httpControllerAdapter(createUserController)
+  const userRepository = new PrismaUsersRepository()
+  const createUserUseCase = new CreateUserUseCase(userRepository)
+  const createUserController = new CreateUserController(
+    new CreateUserDTO(validate),
+    createUserUseCase
+  )
+
+  return httpControllerAdapter(createUserController)
 }

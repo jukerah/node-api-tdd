@@ -6,7 +6,7 @@ import router from "./infra/routes"
 import { appMiddleware } from "./application/middlewares"
 import "dotenv/config"
 import swaggerUi from "swagger-ui-express"
-import swaggerDocs from "./swagger/bundled-swagger.json"
+import swaggerDocs from "./docs/bundled-swagger.json"
 
 const app = express()
 

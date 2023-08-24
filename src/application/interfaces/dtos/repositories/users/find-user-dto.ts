@@ -1,12 +1,12 @@
 import { IUser } from "../../../../../infra/database/in-memory-database"
 
-export interface IInputFindDTO {
+export interface IInputFindUserRepositoryDTO {
   userId?: string
   fullName?: string
   age?: number
   username?: string
   password?: string
-	profilePictureUrl?: string
+  profilePictureUrl?: string
 }
 
-export type IOutputFindDTO = IUser[]
+export type IOutputFindUserRepositoryDTO = IUser[]
