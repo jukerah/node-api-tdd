@@ -11,4 +11,4 @@ interface IMessage {
   body: string
 }
 
-export { InputSendMailNewUser, IMessage }
+export type { InputSendMailNewUser, IMessage }

@@ -1,8 +1,14 @@
 import {
-  ErrorRequestHandler,
-  Request,
-  Response,
-  NextFunction,
+  type ErrorRequestHandler,
+  type Request,
+  type Response,
+  type NextFunction,
   Router
 } from "express"
-export { ErrorRequestHandler, Request, Response, NextFunction, Router }
+export {
+  type ErrorRequestHandler,
+  type Request,
+  type Response,
+  type NextFunction,
+  Router
+}

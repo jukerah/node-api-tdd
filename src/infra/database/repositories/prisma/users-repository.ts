@@ -1,12 +1,14 @@
-import { IUsersRepository } from "../../../../application/interfaces/repositories"
+import { type IUsersRepository } from "../../../../application/interfaces/repositories"
 import {
-  IInputCreateUserRepositoryDTO,
-  IInputFindUserRepositoryDTO
+  type IInputCreateUserRepositoryDTO,
+  type IOutputCreateUserRepositoryDTO,
+  type IInputFindUserRepositoryDTO,
+  type IOutputFindUserRepositoryDTO
 } from "../../../../application/interfaces/dtos/repositories/users"
 import prisma from "../../prisma"
 
 export class PrismaUsersRepository implements IUsersRepository {
-  async create(input: IInputCreateUserRepositoryDTO) {
+  async create (input: IInputCreateUserRepositoryDTO): Promise<IOutputCreateUserRepositoryDTO> {
     const output = await prisma.users.create({
       data: {
         userId: input.userId,
@@ -20,12 +22,12 @@ export class PrismaUsersRepository implements IUsersRepository {
     return output
   }
 
-  async find(input: IInputFindUserRepositoryDTO) {
+  async find (input: IInputFindUserRepositoryDTO): Promise<IOutputFindUserRepositoryDTO> {
     const params: any = {}
 
     for (const key of Object.keys(
       input
-    ) as (keyof IInputFindUserRepositoryDTO)[]) {
+    ) as Array<keyof IInputFindUserRepositoryDTO>) {
       if (input[key] !== undefined) {
         params[key] = input[key]
       }

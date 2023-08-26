@@ -1,13 +1,13 @@
 import express from "express"
 import "express-async-errors"
-import cors from "./libs/cors"
-import rateLimit from "./libs/express-rate-limit"
-import router from "./infra/routes"
-import "./infra/routes/all-routes"
-import { appMiddleware } from "./application/middlewares"
+import cors from "@/libs/cors"
+import rateLimit from "@/libs/express-rate-limit"
+import router from "@/infra/routes"
+import "@/infra/routes/all-routes"
+import { appMiddleware } from "@/application/middlewares"
 import "dotenv/config"
 import swaggerUi from "swagger-ui-express"
-import swaggerDocs from "./docs/bundled-swagger.json"
+import swaggerDocs from "@/docs/bundled-swagger.json"
 
 const app = express()
 

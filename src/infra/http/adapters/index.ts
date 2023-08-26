@@ -1,5 +1,3 @@
-import { httpControllerAdapter } from "./controller-adapter"
-import { httpErrorAdapter } from "./error-adapter"
-import { httpMiddlewareAdapter } from "./middleware-adapter"
-
-export { httpControllerAdapter, httpMiddlewareAdapter, httpErrorAdapter }
+export * from "./controller-adapter"
+export * from "./error-adapter"
+export * from "./middleware-adapter"

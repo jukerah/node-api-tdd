@@ -1,10 +1,10 @@
-import { Entity } from "./entity"
-import { validate } from "../application/factories/helpers"
+import { Entity } from "@/entities/entity"
+import { validate } from "@/application/factories/helpers"
 import {
-  IInputCreateUserEntityDTO,
-  IOutputCreateUserEntityDTO
-} from "../application/interfaces/dtos/entities/users"
-import { crypt } from "../application/helpers"
+  type IInputCreateUserEntityDTO,
+  type IOutputCreateUserEntityDTO
+} from "@/application/interfaces/dtos/entities/users"
+import { crypt } from "@/application/helpers"
 
 type UserParams = {
   fullName: string
@@ -15,11 +15,11 @@ type UserParams = {
 }
 
 export class UserEntity extends Entity<UserParams> {
-  constructor(params: UserParams, userId?: string) {
+  constructor (params: UserParams, userId?: string) {
     super(params, userId)
   }
 
-  static async create(
+  static async create (
     params: IInputCreateUserEntityDTO,
     userId?: string
   ): Promise<IOutputCreateUserEntityDTO> {

@@ -1,4 +1,4 @@
-import { Router } from "../http/config"
+import { Router } from "@/infra/http/config"
 
 const router = Router()
 

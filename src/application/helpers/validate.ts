@@ -1,9 +1,9 @@
-import customError from "../../utils/errors/custom-error"
+import customError from "@/utils/errors/custom-error"
 
 type ReturnType = "RETURN_ERROR"
 
 export class Validate {
-  required(value: unknown, valueName?: string, returnType?: ReturnType) {
+  required (value: unknown, valueName?: string, returnType?: ReturnType): boolean | Error {
     const isEmpty = !value || value === undefined
     if (typeof value === "boolean") {
       return true
@@ -15,11 +15,11 @@ export class Validate {
     return true
   }
 
-  requiredMoreThanOneWord(
+  requiredMoreThanOneWord (
     value: string,
     valueName?: string,
     returnType?: ReturnType
-  ) {
+  ): boolean | Error {
     const notHasMoreThanOneWord =
       !value || value.split(" ").length === 1 || value.split(" ").includes("")
     if (notHasMoreThanOneWord && !returnType) {
@@ -30,7 +30,7 @@ export class Validate {
     return true
   }
 
-  emailFormat(email: string, returnType?: ReturnType) {
+  emailFormat (email: string, returnType?: ReturnType): boolean | Error {
     const regEmail =
       /^[a-zA-Z0-9_.+-]+(?<!^[0-9]*)@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/
     const emailFormatIsInvalid = !regEmail.test(String(email))
@@ -42,12 +42,12 @@ export class Validate {
     return true
   }
 
-  maxLength(
+  maxLength (
     value: any,
     maxLength: number,
     valueName?: string,
     returnType?: ReturnType
-  ) {
+  ): boolean | Error {
     const exceededLimit = String(value).length > maxLength
     if (exceededLimit && !returnType) {
       return true
@@ -57,12 +57,12 @@ export class Validate {
     return false
   }
 
-  minLength(
+  minLength (
     value: any,
     minLength: number,
     valueName?: string,
     returnType?: ReturnType
-  ) {
+  ): boolean | Error {
     const exceededLimit = String(value).length < minLength
     if (exceededLimit && !returnType) {
       return true
@@ -72,7 +72,7 @@ export class Validate {
     return false
   }
 
-  stringType(value: string, valueName?: string, returnType?: ReturnType) {
+  stringType (value: string, valueName?: string, returnType?: ReturnType): boolean | Error {
     const notStringType = typeof value !== "string"
     if (notStringType && !returnType) {
       return false
@@ -82,7 +82,7 @@ export class Validate {
     return true
   }
 
-  numberType(value: number, valueName?: string, returnType?: ReturnType) {
+  numberType (value: number, valueName?: string, returnType?: ReturnType): boolean | Error {
     const notNumberType = typeof value !== "number"
     if (notNumberType && !returnType) {
       return false
@@ -92,7 +92,7 @@ export class Validate {
     return true
   }
 
-  price(value: number, valueName?: string, returnType?: ReturnType) {
+  price (value: number, valueName?: string, returnType?: ReturnType): boolean | Error {
     const regex = /^\d+(\.\d{1,2})?$/
     const notPrice = !regex.test(String(value))
     if (notPrice && !returnType) {
@@ -103,7 +103,7 @@ export class Validate {
     return true
   }
 
-  booleanType(value: boolean, valueName?: string, returnType?: ReturnType) {
+  booleanType (value: boolean, valueName?: string, returnType?: ReturnType): boolean | Error {
     const notBooleanType = typeof value !== "boolean"
     if (notBooleanType && !returnType) {
       return false
@@ -113,7 +113,7 @@ export class Validate {
     return true
   }
 
-  shortDateType(value: string, valueName?: string, returnType?: ReturnType) {
+  shortDateType (value: string, valueName?: string, returnType?: ReturnType): boolean | Error {
     const regDate = /^[0-9]{2}\/[0-9]{2}\/[0-9]{4}$/
     const notShortDateType = !regDate.test(value) || value.length !== 10
     if (notShortDateType && !returnType) {
@@ -125,9 +125,9 @@ export class Validate {
     return true
   }
 
-  longDateType(value: Date, valueName?: string, returnType?: ReturnType) {
+  longDateType (value: Date, valueName?: string, returnType?: ReturnType): boolean | Error {
     const isDate = value instanceof Date
-    console.log({ isDate })
+
     if (!isDate && !returnType) {
       return false
     } else if (!isDate && returnType === "RETURN_ERROR") {
@@ -136,12 +136,12 @@ export class Validate {
     return true
   }
 
-  dateGreaterThan(
+  dateGreaterThan (
     validateDate: Date,
     dateToCompare: Date,
     validateDateName?: string,
     returnType?: ReturnType
-  ) {
+  ): boolean | Error {
     const day = dateToCompare.getDate()
     const month = dateToCompare.getMonth() + 1
     const year = dateToCompare.getFullYear()
@@ -156,12 +156,12 @@ export class Validate {
     return true
   }
 
-  dateLessThan(
+  dateLessThan (
     validateDate: Date,
     dateToCompare: Date,
     validateDateName?: string,
     returnType?: ReturnType
-  ) {
+  ): boolean | Error {
     const day = dateToCompare.getDate()
     const month = dateToCompare.getMonth() + 1
     const year = dateToCompare.getFullYear()
@@ -176,7 +176,7 @@ export class Validate {
     return true
   }
 
-  timeType(value: string, valueName?: string, returnType?: ReturnType) {
+  timeType (value: string, valueName?: string, returnType?: ReturnType): boolean | Error {
     const regTime = /^[0-9]{2}:[0-9]{2}$/
     const notTimeType =
       !regTime.test(String(value)) || String(value).length !== 5
@@ -188,7 +188,7 @@ export class Validate {
     return true
   }
 
-  uuidType(uuid: string, uuidName?: string, returnType?: ReturnType) {
+  uuidType (uuid: string, uuidName?: string, returnType?: ReturnType): boolean | Error {
     const uuidRegex =
       /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i
     const notUuidType = !uuidRegex.test(uuid)
@@ -200,7 +200,7 @@ export class Validate {
     return true
   }
 
-  percent(value: number, valueName?: string, returnType?: ReturnType) {
+  percent (value: number, valueName?: string, returnType?: ReturnType): boolean | Error {
     const invalidPercentage = value > 100 || value < 0
     if (invalidPercentage && !returnType) {
       return false

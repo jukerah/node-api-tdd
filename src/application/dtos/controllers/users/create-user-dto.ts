@@ -1,12 +1,16 @@
-import { Validate } from "../../../helpers"
-import { IRequestCreateUserControllerDTO } from "../../../interfaces/controllers"
-import { IOutputUseCaseErrorDTO } from "../../../interfaces/dtos/errors/use-cases"
-import { IOutputCreateUserUseCaseDTO } from "../../../interfaces/dtos/use-cases"
+import { type Validate } from "@/application/helpers"
+import { type IRequestCreateUserControllerDTO } from "@/application/interfaces/controllers"
+import { type IOutputUseCaseErrorDTO } from "@/application/interfaces/dtos/errors/use-cases"
+import { type IOutputCreateUserUseCaseDTO } from "@/application/interfaces/dtos/use-cases"
+import {
+  type IOutputCreateUserInputDTO,
+  type IOutputCreateUserOutputDTO
+} from "@/application/interfaces/dtos/controllers/users"
 
 export class CreateUserDTO {
-  constructor(private validate: Validate) {}
+  constructor (private readonly validate: Validate) {}
 
-  input(request: IRequestCreateUserControllerDTO) {
+  input (request: IRequestCreateUserControllerDTO): IOutputCreateUserInputDTO {
     const inputDTO = {
       fullName: request.body.fullName,
       age: request.body.age,
@@ -41,7 +45,7 @@ export class CreateUserDTO {
     return inputDTO
   }
 
-  output(input: IOutputCreateUserUseCaseDTO | IOutputUseCaseErrorDTO) {
+  output (input: IOutputCreateUserUseCaseDTO | IOutputUseCaseErrorDTO): IOutputCreateUserOutputDTO {
     if (input.code === 201 && "result" in input) {
       const outputDTO = {
         code: input.code,

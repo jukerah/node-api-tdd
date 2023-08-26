@@ -1,9 +1,9 @@
-import { IMessage } from "../../interfaces/providers/mail-provider"
+import { type IMessage } from "@/application/interfaces/providers/mail-provider"
 
 class MailProvider {
-  constructor(private nodemailer: any) {}
+  constructor (private readonly nodemailer: any) {}
 
-  async sendMail({ from, to, subject, body }: IMessage): Promise<boolean> {
+  async sendMail ({ from, to, subject, body }: IMessage): Promise<boolean> {
     const transporter = this.nodemailer.createTransport({
       service: "gmail",
       auth: {
@@ -13,9 +13,9 @@ class MailProvider {
     })
 
     const mailOptions = {
-      from: from,
-      to: to,
-      subject: subject,
+      from,
+      to,
+      subject,
       html: body
     }
 

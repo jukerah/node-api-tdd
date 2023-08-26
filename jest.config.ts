@@ -10,5 +10,9 @@ export default {
     "^.+\\.(t|j)sx?$": ["@swc/jest"]
   },
   testRegex: ".test.ts",
-  modulePathIgnorePatterns: ["/node_modules/", "/dist/"]
+  modulePathIgnorePatterns: ["/node_modules/", "/dist/"],
+  moduleNameMapper: {
+    '@/tests/(.*)': '<rootDir>/__tests__/$1',
+    '@/(.*)': '<rootDir>/src/$1'
+  }
 }

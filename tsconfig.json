@@ -13,6 +13,11 @@
     "checkJs": true,
     "declaration": true,
     "outDir": "./dist",
+    "baseUrl": "src",
+    "rootDirs": ["src"],
+    "paths": {
+      "@/*": ["*"]
+    },
     "removeComments": true,
     "esModuleInterop": true,
     "resolveJsonModule": true,

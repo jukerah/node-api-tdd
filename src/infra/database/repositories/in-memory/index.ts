@@ -1,3 +1,1 @@
-import { InMemoryUsersRepository } from "./users-repository"
-
-export { InMemoryUsersRepository }
+export * from "./users-repository"

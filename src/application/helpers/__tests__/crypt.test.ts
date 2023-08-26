@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
-import { validateMock } from "../../factories/__mocks__/helpers"
-import { crypt } from "../crypt"
-import { dotenv } from "../../../libs/dotenv"
+import { validateMock } from "@/application/factories/__mocks__/helpers"
+import { crypt } from "@/application/helpers/crypt"
+import { dotenv } from "@/libs/dotenv"
 dotenv.config({ path: ".env.test" })
 
 describe("Crypt", () => {
@@ -41,7 +41,7 @@ describe("Crypt", () => {
       }
     }
 
-    const sut = crypt.decryptToken(request)
+    const sut: any = crypt.decryptToken(request)
 
     if (sut) expect(validateMock.stringType(sut, "userId")).toBeTruthy()
   })

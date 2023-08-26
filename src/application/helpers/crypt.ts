@@ -1,8 +1,8 @@
-import bcrypt from "../../libs/bcrypt"
-import crypto from "../../libs/crypto"
-import jwt from "../../libs/jsonwebtoken"
-import customError from "../../utils/errors/custom-error"
-import { Request } from "../../infra/http/config"
+import bcrypt from "@/libs/bcrypt"
+import crypto from "@/libs/crypto"
+import jwt from "@/libs/jsonwebtoken"
+import customError from "@/utils/errors/custom-error"
+import { type Request } from "@/infra/http/config"
 
 interface PayLoad {
   sub: string
@@ -13,17 +13,17 @@ interface ICrypt {
   createHash: (data: string, rounds: number) => Promise<string>
   compareHash: (data: string, encrypted: string) => Promise<boolean>
   token: (personId: string) => string
-  decryptToken: (request: Request) => void | string
+  decryptToken: (request: Request) => string | undefined | Error
 }
 
 export const crypt: ICrypt = {
   randomUUID: (): string => {
     return crypto.randomUUID()
   },
-  createHash: (data: string, rounds: number): Promise<string> => {
+  createHash: async (data: string, rounds: number): Promise<string> => {
     return bcrypt.hash(data, rounds)
   },
-  compareHash: (data: string, encrypted: string): Promise<boolean> => {
+  compareHash: async (data: string, encrypted: string): Promise<boolean> => {
     return bcrypt.compare(data, encrypted)
   },
   token: (userId: string): string => {
@@ -34,14 +34,14 @@ export const crypt: ICrypt = {
     })
     return token
   },
-  decryptToken: (request: Request): void | string => {
-    const authToken = request.headers.authorization as string
-
-    if (!authToken) customError("Desculpa, mas você não está autenticado!")
-
-    const [, token] = authToken.split(" ")
-
+  decryptToken: (request: Request): string | undefined | Error => {
     try {
+      const authToken = request.headers.authorization as string
+
+      if (!authToken) customError("Desculpa, mas você não está autenticado!")
+
+      const [, token] = authToken.split(" ")
+
       const { sub } = jwt.verify(
         token,
         process.env.JWT_SECRET as string

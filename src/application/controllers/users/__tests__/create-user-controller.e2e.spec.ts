@@ -1,4 +1,4 @@
-import { app } from "../../../../__mocks__/app"
+import { app } from "@/__mocks__/app"
 import request from "supertest"
 
 describe("Create user controller", () => {

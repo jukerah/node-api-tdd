@@ -1,8 +1,8 @@
-import { InMemoryUsersRepository } from "../../../../infra/database/repositories/in-memory"
-import { httpMiddlewareAdapter } from "../../../../infra/http/adapters"
-import { IsAuthenticatedMiddleware } from "../../../middlewares/is-authenticated-middleware"
+import { InMemoryUsersRepository } from "@/infra/database/repositories/in-memory"
+import { httpMiddlewareAdapter } from "@/infra/http/adapters"
+import { IsAuthenticatedMiddleware } from "@/application/middlewares/is-authenticated-middleware"
 
-export const isAuthenticatedMiddlewareFactoryMock = () => {
+export const isAuthenticatedMiddlewareMock = (): any => {
   const isAuthenticatedMiddleware = new IsAuthenticatedMiddleware(
     new InMemoryUsersRepository()
   )

@@ -1,3 +1,3 @@
-import { Validate } from "../../helpers"
+import { Validate } from "@/application/helpers"
 
 export const validate = new Validate()

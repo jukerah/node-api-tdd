@@ -1,21 +1,21 @@
-import { CreateUserUseCase } from "../../use-cases"
-import { CreateUserDTO } from "../../dtos/controllers"
+import { type CreateUserUseCase } from "@/application/use-cases"
+import { type CreateUserDTO } from "@/application/dtos/controllers"
 import {
-  ICreateUserController,
-  IRequestCreateUserControllerDTO,
-  IResponseCreateUserControllerDTO
-} from "../../interfaces/controllers"
+  type ICreateUserController,
+  type IRequestCreateUserControllerDTO,
+  type IResponseCreateUserControllerDTO
+} from "@/application/interfaces/controllers"
 
 export class CreateUserController implements ICreateUserController {
-  constructor(
-    private createUserDTO: CreateUserDTO,
-    private createUserUseCase: CreateUserUseCase
+  constructor (
+    private readonly createUserDTO: CreateUserDTO,
+    private readonly createUserUseCase: CreateUserUseCase
   ) {}
 
-  async handle(
+  async handle (
     request: IRequestCreateUserControllerDTO,
     response: IResponseCreateUserControllerDTO
-  ) {
+  ): Promise<IResponseCreateUserControllerDTO> {
     try {
       const input = this.createUserDTO.input(request)
       const createdUser = await this.createUserUseCase.execute(input)

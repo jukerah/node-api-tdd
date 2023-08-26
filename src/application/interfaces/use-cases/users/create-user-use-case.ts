@@ -1,11 +1,11 @@
-import { IOutputUseCaseErrorDTO } from "../../dtos/errors/use-cases"
+import { type IOutputUseCaseErrorDTO } from "@/application/interfaces/dtos/errors/use-cases"
 import {
-  IInputCreateUserUseCaseDTO,
-  IOutputCreateUserUseCaseDTO
-} from "../../dtos/use-cases"
+  type IInputCreateUserUseCaseDTO,
+  type IOutputCreateUserUseCaseDTO
+} from "@/application/interfaces/dtos/use-cases"
 
 export interface ICreateUserUseCase {
-  execute(
+  execute: (
     input: IInputCreateUserUseCaseDTO
-  ): Promise<IOutputCreateUserUseCaseDTO | IOutputUseCaseErrorDTO>
+  ) => Promise<IOutputCreateUserUseCaseDTO | IOutputUseCaseErrorDTO>
 }

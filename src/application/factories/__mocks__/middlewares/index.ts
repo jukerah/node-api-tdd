@@ -1,3 +1,1 @@
-import { isAuthenticatedMiddlewareFactoryMock } from "./is-authenticated-middleware"
-
-export { isAuthenticatedMiddlewareFactoryMock }
+export * from "./is-authenticated-middleware"

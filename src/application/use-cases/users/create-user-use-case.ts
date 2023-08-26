@@ -1,12 +1,16 @@
-import { ICreateUserUseCase } from "../../interfaces/use-cases"
-import { IInputCreateUserUseCaseDTO } from "../../interfaces/dtos/use-cases"
-import { IUsersRepository } from "../../interfaces/repositories"
-import { UserEntity } from "../../../entities"
+import { type ICreateUserUseCase } from "@/application/interfaces/use-cases"
+import {
+  type IInputCreateUserUseCaseDTO,
+  type IOutputCreateUserUseCaseDTO
+} from "@/application/interfaces/dtos/use-cases"
+import { type IUsersRepository } from "@/application/interfaces/repositories"
+import { type IOutputUseCaseErrorDTO } from "@/application/interfaces/dtos/errors/use-cases"
+import { UserEntity } from "@/entities"
 
 export class CreateUserUseCase implements ICreateUserUseCase {
-  constructor(private userRepository: IUsersRepository) {}
+  constructor (private readonly userRepository: IUsersRepository) {}
 
-  async execute(input: IInputCreateUserUseCaseDTO) {
+  async execute (input: IInputCreateUserUseCaseDTO): Promise<IOutputCreateUserUseCaseDTO | IOutputUseCaseErrorDTO> {
     try {
       const user = await UserEntity.create(input)
       const createdUser = await this.userRepository.create(user)

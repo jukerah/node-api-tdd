@@ -1,11 +1,11 @@
-import { Request, Response } from "../config"
+import { type Request, type Response } from "../config"
 
-export interface Controller {
-  handle(request: Request, response: Response): Promise<any>
+interface Controller {
+  handle: (request: Request, response: Response) => any
 }
 
 export const httpControllerAdapter = (controller: Controller) => {
-  return async (request: Request, response: Response) => {
-    return await controller.handle(request, response)
+  return (request: Request, response: Response) => {
+    return controller.handle(request, response)
   }
 }

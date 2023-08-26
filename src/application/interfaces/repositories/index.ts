@@ -1,3 +1,1 @@
-import { IUsersRepository } from "./users-repository"
-
-export { IUsersRepository }
+export * from "./users-repository"

@@ -1,4 +1,2 @@
-import { crypt } from "./crypt"
-import { Validate } from "./validate"
-
-export { crypt, Validate }
+export * from "./crypt"
+export * from "./validate"

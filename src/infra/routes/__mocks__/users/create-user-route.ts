@@ -1,4 +1,4 @@
-import routerMock from ".."
-import { createUserControllerFactoryMock } from "../../../../application/factories/__mocks__/controllers"
+import routerMock from "@/infra/routes/__mocks__"
+import { createUserControllerMock } from "@/application/factories/__mocks__/controllers"
 
-routerMock.post("/api/v1/user/create", createUserControllerFactoryMock())
+routerMock.post("/api/v1/user/create", createUserControllerMock())

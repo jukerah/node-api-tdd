@@ -1,10 +1,9 @@
 import {
-  IInputCreateUserUseCaseDTO,
-  IOutputCreateUserUseCaseDTO
-} from "../../../../interfaces/dtos/use-cases"
-import { validateMock } from "../../../../factories/__mocks__/helpers"
-import { CreateUserDTO } from "../create-user-dto"
-import { IRequestCreateUserControllerDTO } from "../../../../interfaces/controllers"
+  type IInputCreateUserUseCaseDTO,
+  type IOutputCreateUserUseCaseDTO
+} from "@/application/interfaces/dtos/use-cases"
+import { validateMock } from "@/application/factories/__mocks__/helpers"
+import { CreateUserDTO } from "@/application/dtos/controllers"
 
 describe("Create user dto", () => {
   let createUserDTO: CreateUserDTO
@@ -14,7 +13,7 @@ describe("Create user dto", () => {
   })
 
   it("should be able to return inputDTO", async () => {
-    const input = {
+    const input: any = {
       body: {
         fullName: "Full Name",
         age: 18,
@@ -22,7 +21,7 @@ describe("Create user dto", () => {
         password: "12345678",
         profilePictureUrl: "http://exemplo.com/profile.png"
       }
-    } as IRequestCreateUserControllerDTO
+    }
 
     const sut = createUserDTO.input(input) as IInputCreateUserUseCaseDTO
 
@@ -45,7 +44,7 @@ describe("Create user dto", () => {
         password: "12345678",
         profilePictureUrl: "https://exemplo.com/profile.png"
       }
-    } as IOutputCreateUserUseCaseDTO
+    }
 
     const sut = createUserDTO.output(input) as IOutputCreateUserUseCaseDTO
 
@@ -59,6 +58,20 @@ describe("Create user dto", () => {
         username: "username",
         profilePictureUrl: "https://exemplo.com/profile.png"
       }
+    })
+  })
+
+  it("should be able to return outputDTO", async () => {
+    const input: any = {
+      code: 503,
+      message: "Error name!"
+    }
+
+    const sut = createUserDTO.output(input) as IOutputCreateUserUseCaseDTO
+
+    expect(sut).toEqual({
+      code: 503,
+      message: "Error name!"
     })
   })
 })

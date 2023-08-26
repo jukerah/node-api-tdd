@@ -1,9 +1,9 @@
 import { crypt } from "../../../../../application/helpers"
 import {
-  IInputCreateUserRepositoryDTO,
-  IInputFindUserRepositoryDTO
+  type IInputCreateUserRepositoryDTO,
+  type IInputFindUserRepositoryDTO
 } from "../../../../../application/interfaces/dtos/repositories/users"
-import { IUsersRepository } from "../../../../../application/interfaces/repositories"
+import { type IUsersRepository } from "../../../../../application/interfaces/repositories"
 import { InMemoryUsersRepository } from "../users-repository"
 
 describe("In memory users repository", () => {

@@ -1,4 +1,4 @@
-import { IUser } from "../../../../../infra/database/in-memory-database"
+import { type IUser } from "@/infra/database/in-memory-database"
 
 export interface IInputFindUserRepositoryDTO {
   userId?: string

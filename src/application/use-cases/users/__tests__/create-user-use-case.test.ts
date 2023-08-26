@@ -1,10 +1,10 @@
-import { IUsersRepository } from "../../../interfaces/repositories"
-import { CreateUserUseCase } from "../create-user-use-case"
-import { InMemoryUsersRepository } from "../../../../infra/database/repositories/in-memory"
+import { type IUsersRepository } from "@/application/interfaces/repositories"
+import { CreateUserUseCase } from "@/application/use-cases"
+import { InMemoryUsersRepository } from "@/infra/database/repositories/in-memory"
 import {
-  IInputCreateUserUseCaseDTO,
-  IOutputCreateUserUseCaseDTO
-} from "../../../interfaces/dtos/use-cases"
+  type IInputCreateUserUseCaseDTO,
+  type IOutputCreateUserUseCaseDTO
+} from "@/application/interfaces/dtos/use-cases"
 
 describe("Create user use case", () => {
   let usersRepository: IUsersRepository

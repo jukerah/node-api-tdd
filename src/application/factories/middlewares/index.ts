@@ -1,3 +1,1 @@
-import { isAuthenticatedMiddlewareFactory } from "./is-authenticated-middleware"
-
-export { isAuthenticatedMiddlewareFactory }
+export * from "./is-authenticated-middleware"

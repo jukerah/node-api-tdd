@@ -1,15 +1,15 @@
 import {
-  IInputCreateUserRepositoryDTO,
-  IOutputCreateUserRepositoryDTO,
-  IInputFindUserRepositoryDTO,
-  IOutputFindUserRepositoryDTO
-} from "../dtos/repositories/users"
+  type IInputCreateUserRepositoryDTO,
+  type IOutputCreateUserRepositoryDTO,
+  type IInputFindUserRepositoryDTO,
+  type IOutputFindUserRepositoryDTO
+} from "@/application/interfaces/dtos/repositories/users"
 
 export interface IUsersRepository {
-  create(
+  create: (
     inputDTO: IInputCreateUserRepositoryDTO
-  ): Promise<IOutputCreateUserRepositoryDTO>
-  find(
+  ) => Promise<IOutputCreateUserRepositoryDTO>
+  find: (
     inputDTO: IInputFindUserRepositoryDTO
-  ): Promise<IOutputFindUserRepositoryDTO>
+  ) => Promise<IOutputFindUserRepositoryDTO>
 }

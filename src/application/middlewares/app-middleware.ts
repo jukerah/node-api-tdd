@@ -1,17 +1,16 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import {
-  Request,
-  Response,
-  ErrorRequestHandler,
-  NextFunction
-} from "../../infra/http/config"
+  type Request,
+  type Response,
+  type ErrorRequestHandler,
+  type NextFunction
+} from "@/infra/http/config"
 
 export const appMiddleware = (
   error: ErrorRequestHandler,
-  request: Request,
+  _request: Request,
   response: Response,
-  next: NextFunction
-) => {
+  _next: NextFunction
+): Response<any, Record<string, any>> => {
   if (error instanceof Error) {
     return response.status(400).json({
       message: error.message

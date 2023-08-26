@@ -1,3 +1,1 @@
-import { appMiddleware } from "./app-middleware"
-
-export { appMiddleware }
+export * from "./app-middleware"

@@ -1,13 +1,13 @@
-import { app } from "../../../__mocks__/app"
-import router from "../../../infra/routes/__mocks__"
 import request from "supertest"
-import { isAuthenticatedMiddlewareFactoryMock } from "../../factories/__mocks__/middlewares"
-import { crypt } from "../../helpers"
+import { app } from "@/__mocks__/app"
+import router from "@/infra/routes/__mocks__"
+import { isAuthenticatedMiddlewareMock } from "@/application/factories/__mocks__/middlewares"
+import { crypt } from "@/application/helpers"
 
 describe("Is authenticated middleware", () => {
   router.get(
     "/api/v1/test-is-authenticated",
-    isAuthenticatedMiddlewareFactoryMock(),
+    isAuthenticatedMiddlewareMock(),
     (request, response) => {
       response.sendStatus(200)
     }

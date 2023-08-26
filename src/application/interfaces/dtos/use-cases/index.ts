@@ -1,6 +1,1 @@
-import {
-  IInputCreateUserUseCaseDTO,
-  IOutputCreateUserUseCaseDTO
-} from "./users/create-user-dto"
-
-export { IInputCreateUserUseCaseDTO, IOutputCreateUserUseCaseDTO }
+export * from "./users/create-user-dto"

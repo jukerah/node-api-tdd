@@ -1,11 +1,11 @@
-import { Request, Response, ErrorRequestHandler } from "../config"
+import { type Request, type Response, type ErrorRequestHandler } from "../config"
 
 interface ErrorRequest {
-  handle(
+  handle: (
     request: Request,
     response: Response,
     error: ErrorRequestHandler
-  ): Promise<any>
+  ) => Promise<any>
 }
 
 export const httpErrorAdapter = (errorRequestHandler: ErrorRequest) => {

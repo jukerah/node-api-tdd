@@ -1,11 +1,11 @@
-import { httpControllerAdapter } from "../../../../infra/http/adapters"
-import { PrismaUsersRepository } from "../../../../infra/database/repositories/prisma"
-import { CreateUserController } from "../../../controllers"
-import { CreateUserDTO } from "../../../dtos/controllers"
-import { CreateUserUseCase } from "../../../use-cases"
-import { validate } from "../../helpers"
+import { httpControllerAdapter } from "@/infra/http/adapters"
+import { PrismaUsersRepository } from "@/infra/database/repositories/prisma"
+import { CreateUserController } from "@/application/controllers"
+import { CreateUserDTO } from "@/application/dtos/controllers"
+import { CreateUserUseCase } from "@/application/use-cases"
+import { validate } from "@/application/factories/helpers"
 
-export const createUserControllerFactory = () => {
+export const createUserController = (): any => {
   const userRepository = new PrismaUsersRepository()
   const createUserUseCase = new CreateUserUseCase(userRepository)
   const createUserController = new CreateUserController(
