@@ -23,5 +23,5 @@
     "noUnusedLocals": true,
     "skipLibCheck": true
   },
-  "include": ["src/**/*", "@types", "src/__mocks__/swagger.js"]
+  "include": ["src/**/*", "@types"]
 }
