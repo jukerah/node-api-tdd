@@ -1,4 +1,3 @@
-import { serverError, badRequest } from "@/infra/http/adapters/http-response"
 import {
   type Request,
   type Response,
@@ -13,7 +12,15 @@ export const appMiddleware = (
   _next: NextFunction
 ): Response<any, Record<string, any>> => {
   if (error instanceof Error) {
-    return response.status(400).json(badRequest(error.message))
+    return response.status(400).json({
+      message: error.message
+    })
   }
-  return response.status(500).json(serverError("Serviço não disponível!"))
+  return response.status(500).json({
+    code: 500,
+    message: {
+      errorCode: "SERVICE_UNAVAILABLE",
+      error: "Serviço não disponível"
+    }
+  })
 }

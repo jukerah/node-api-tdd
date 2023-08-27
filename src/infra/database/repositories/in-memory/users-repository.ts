@@ -1,5 +1,5 @@
 import { type User } from "@/application/interfaces/entities"
-import { inMemoryDatabase } from "../../in-memory-database"
+import { inMemoryDatabase } from "@/infra/database/in-memory-database"
 import {
   type IUsersRepository,
   type IInputCreateUserRepositoryDTO,

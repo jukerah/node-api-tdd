@@ -1,4 +1,4 @@
-import { prisma } from "@/infra/database/prisma"
+import prisma from "@/infra/database/prisma-setup"
 import {
   type IUsersRepository,
   type IInputCreateUserRepositoryDTO,
