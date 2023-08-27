@@ -4,8 +4,6 @@
   "main": "server.ts",
   "license": "MIT",
   "scripts": {
-    "format:check": "prettier --check .",
-    "format:write": "prettier --write .",
     "swagger-bundle": "swagger-cli bundle --outfile src/docs/bundled-swagger.json src/docs/main-swagger.json",
     "dev": "concurrently \"yarn swagger-bundle\" \"ts-node-dev --watch --transpile-only src/server.ts\"",
     "dev:in-memory": "concurrently \"yarn swagger-bundle\" \"ts-node-dev --watch --transpile-only src/__mocks__/server.ts\"",
