@@ -1,6 +1,6 @@
 import { type Request, type Response } from "@/infra/http/config"
 import { type IOutputUseCaseErrorDTO } from "@/application/interfaces/errors/use-cases"
-import { type IOutputCreateUserOutputDTO } from "../../dtos/controllers"
+import { type IOutputCreateUserOutputDTO } from "../../dtos"
 
 export interface ICreateUserController {
   handle: (

@@ -6,7 +6,7 @@ import {
   type ICreateUserDTO,
   type IOutputCreateUserInputDTO,
   type IOutputCreateUserOutputDTO
-} from "@/application/interfaces/dtos/controllers"
+} from "@/application/interfaces/dtos"
 
 export class CreateUserDTO implements ICreateUserDTO {
   constructor (private readonly validate: Validate) {}
