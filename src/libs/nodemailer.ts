@@ -1,2 +1,3 @@
 import nodemailer from "nodemailer"
-export { nodemailer }
+
+export default nodemailer

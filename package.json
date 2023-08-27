@@ -14,7 +14,7 @@
     "test:coverage": "jest --coverage --config jest.config.ts",
     "test:e2e": "jest --config jest-e2e.config.ts",
     "test:ci": "yarn test -- --coverage --silent",
-    "build": "tsc",
+    "build": "rimraf dist && tsc -p tsconfig-build.json",
     "lint": "eslint --fix 'src/**/*.ts'"
   },
   "dependencies": {

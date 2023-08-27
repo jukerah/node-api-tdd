@@ -1,14 +1,7 @@
-export interface IUser {
-  userId: string
-  fullName: string
-  age: number
-  username: string
-  password: string
-  profilePictureUrl: string
-}
+import { type User } from "@/application/interfaces/entities"
 
 interface InMemoryDatabase {
-  users: IUser[]
+  users: User[]
 }
 
 export const inMemoryDatabase: InMemoryDatabase = {

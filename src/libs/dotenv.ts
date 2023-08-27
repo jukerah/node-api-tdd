@@ -1,2 +1,3 @@
 import dotenv from "dotenv"
-export { dotenv }
+
+export default dotenv

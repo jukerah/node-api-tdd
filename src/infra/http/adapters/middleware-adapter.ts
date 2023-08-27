@@ -1,4 +1,4 @@
-import { type Request, type Response, type NextFunction } from "../config"
+import { type Request, type Response, type NextFunction } from "@/infra/http/config"
 
 interface Middleware {
   handle: (request: Request, response: Response, next: NextFunction) => any

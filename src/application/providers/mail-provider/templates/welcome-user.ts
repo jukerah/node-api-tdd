@@ -3,7 +3,7 @@ import {
   type IMessage
 } from "@/application/interfaces/providers/mail-provider"
 
-const mailOptionsNewUser = (input: InputSendMailNewUser): IMessage => {
+export const mailOptionsNewUser = (input: InputSendMailNewUser): IMessage => {
   return {
     from: input.from,
     to: input.to,
@@ -17,5 +17,3 @@ const mailOptionsNewUser = (input: InputSendMailNewUser): IMessage => {
     `
   }
 }
-
-export default mailOptionsNewUser

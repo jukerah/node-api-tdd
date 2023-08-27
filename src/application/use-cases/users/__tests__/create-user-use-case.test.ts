@@ -4,7 +4,7 @@ import { InMemoryUsersRepository } from "@/infra/database/repositories/in-memory
 import {
   type IInputCreateUserUseCaseDTO,
   type IOutputCreateUserUseCaseDTO
-} from "@/application/interfaces/dtos/use-cases"
+} from "@/application/interfaces/use-cases"
 
 describe("Create user use case", () => {
   let usersRepository: IUsersRepository
@@ -29,7 +29,7 @@ describe("Create user use case", () => {
     )) as IOutputCreateUserUseCaseDTO
 
     expect(sut.message).toEqual("Usuário cadastrado com sucesso!")
-    expect(typeof sut.result?.userId === "string").toBeTruthy()
+    expect(typeof sut.result.userId === "string").toBeTruthy()
     expect(sut.result.fullName).toEqual(input.fullName)
     expect(sut.result.age).toEqual(input.age)
     expect(sut.result.username).toEqual(input.username)
@@ -50,8 +50,8 @@ describe("Create user use case", () => {
     expect(sut).toEqual({
       code: 503,
       message: {
-        error: "Nome completo é obrigatório!",
-        errorCode: "INTERNAL_ERROR"
+        errorCode: "SERVICE_UNAVAILABLE",
+        error: "Nome completo é obrigatório!"
       }
     })
   })

@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 import { validateMock } from "@/application/factories/__mocks__/helpers"
 import { crypt } from "@/application/helpers/crypt"
-import { dotenv } from "@/libs/dotenv"
+import dotenv from "@/libs/dotenv"
 dotenv.config({ path: ".env.test" })
 
 describe("Crypt", () => {

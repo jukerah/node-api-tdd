@@ -1,10 +1,10 @@
-import { crypt } from "../../../../../application/helpers"
+import { crypt } from "@/application/helpers"
+import { InMemoryUsersRepository } from "@/infra/database/repositories/in-memory"
 import {
+  type IUsersRepository,
   type IInputCreateUserRepositoryDTO,
   type IInputFindUserRepositoryDTO
-} from "../../../../../application/interfaces/dtos/repositories/users"
-import { type IUsersRepository } from "../../../../../application/interfaces/repositories"
-import { InMemoryUsersRepository } from "../users-repository"
+} from "@/application/interfaces/repositories"
 
 describe("In memory users repository", () => {
   let usersRepository: IUsersRepository

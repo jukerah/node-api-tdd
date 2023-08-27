@@ -70,7 +70,7 @@ describe("Validators", () => {
     expect(sut).toBeFalsy()
   })
 
-  it("should be able to return FALSE when the date is in the format DD/MM/YYYY and RETURN_ERROR parameter is used", () => {
+  it("should be able to return false when the date is in the format DD/MM/YYYY and RETURN_ERROR parameter is used", () => {
     try {
       const date = "2000/12/03"
       validateMock.shortDateType(date, "Example", "RETURN_ERROR")

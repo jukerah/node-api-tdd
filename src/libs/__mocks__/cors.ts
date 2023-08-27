@@ -1,9 +1,10 @@
-import cors from "cors"
+import Cors from "cors"
 
-const options: cors.CorsOptions = {
+const options: Cors.CorsOptions = {
   origin: true,
   optionsSuccessStatus: 200
 }
 
-const corsMock = cors(options)
+export const corsMock = Cors(options)
+
 export default corsMock

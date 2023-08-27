@@ -1,5 +1,5 @@
 import { MailProvider } from "@/application/providers/mail-provider"
-import { nodeMailerMock } from "@/libs/__mocks__/nodemailer"
+import nodeMailerMock from "@/libs/__mocks__/nodemailer"
 
 describe("Mail provider", () => {
   let mailProvider: MailProvider

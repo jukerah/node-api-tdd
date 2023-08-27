@@ -1,4 +1,11 @@
-import { type IOutputUseCaseErrorDTO } from "@/application/interfaces/dtos/errors/use-cases"
+import { type IOutputUseCaseErrorDTO } from "@/application/interfaces/errors/use-cases"
+import { type IRequestCreateUserControllerDTO } from "@/application/interfaces/controllers"
+import { type IOutputCreateUserUseCaseDTO } from "@/application/interfaces/use-cases"
+
+export interface ICreateUserDTO {
+  input: (request: IRequestCreateUserControllerDTO) => IOutputCreateUserInputDTO
+  output: (input: IOutputCreateUserUseCaseDTO | IOutputUseCaseErrorDTO) => IOutputCreateUserOutputDTO
+}
 
 export interface IOutputCreateUserInputDTO {
   fullName: string

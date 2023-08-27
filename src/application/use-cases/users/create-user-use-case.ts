@@ -1,11 +1,12 @@
-import { type ICreateUserUseCase } from "@/application/interfaces/use-cases"
+import { type IUsersRepository } from "@/application/interfaces/repositories"
+import { type IOutputUseCaseErrorDTO } from "@/application/interfaces/errors/use-cases"
+import { UserEntity } from "@/entities"
+import { created, unavailable } from "@/infra/http/adapters/http-response"
 import {
+  type ICreateUserUseCase,
   type IInputCreateUserUseCaseDTO,
   type IOutputCreateUserUseCaseDTO
-} from "@/application/interfaces/dtos/use-cases"
-import { type IUsersRepository } from "@/application/interfaces/repositories"
-import { type IOutputUseCaseErrorDTO } from "@/application/interfaces/dtos/errors/use-cases"
-import { UserEntity } from "@/entities"
+} from "@/application/interfaces/use-cases"
 
 export class CreateUserUseCase implements ICreateUserUseCase {
   constructor (private readonly userRepository: IUsersRepository) {}
@@ -14,19 +15,12 @@ export class CreateUserUseCase implements ICreateUserUseCase {
     try {
       const user = await UserEntity.create(input)
       const createdUser = await this.userRepository.create(user)
-      return {
-        code: 201,
+      return created({
         message: "Usuário cadastrado com sucesso!",
         result: createdUser
-      }
+      })
     } catch (error: any) {
-      return {
-        code: 503,
-        message: {
-          errorCode: "INTERNAL_ERROR",
-          error: error.message
-        }
-      }
+      return unavailable(error.message)
     }
   }
 }

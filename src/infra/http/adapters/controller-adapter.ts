@@ -1,4 +1,4 @@
-import { type Request, type Response } from "../config"
+import { type Request, type Response } from "@/infra/http/config"
 
 interface Controller {
   handle: (request: Request, response: Response) => any

@@ -1,3 +1,7 @@
+export interface IMailProvider {
+  sendMail: (request: IMessage) => Promise<boolean>
+}
+
 interface InputSendMailNewUser {
   from: string
   to: string

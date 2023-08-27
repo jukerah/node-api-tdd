@@ -1,4 +1,4 @@
-import customError from "@/utils/errors/custom-error"
+import { customError } from "@/utils/errors/custom-error"
 
 type ReturnType = "RETURN_ERROR"
 

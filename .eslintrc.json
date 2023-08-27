@@ -3,6 +3,7 @@
   "parserOptions": {
     "project": "./tsconfig.json"
   },
+  "ignorePatterns": ["jest.config.ts", "jest-e2e.config.ts"],
   "rules": {
     "max-len": ["error", { "code": 128 }],
     "indent": ["error", 2],

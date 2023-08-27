@@ -1,21 +1,14 @@
+import { crypt } from "@/application/helpers"
 import { Entity } from "@/entities/entity"
 import { validate } from "@/application/factories/helpers"
 import {
+  type IUserParams,
   type IInputCreateUserEntityDTO,
   type IOutputCreateUserEntityDTO
-} from "@/application/interfaces/dtos/entities/users"
-import { crypt } from "@/application/helpers"
+} from "@/application/interfaces/entities/users"
 
-type UserParams = {
-  fullName: string
-  age: number
-  username: string
-  password: string
-  profilePictureUrl: string
-}
-
-export class UserEntity extends Entity<UserParams> {
-  constructor (params: UserParams, userId?: string) {
+export class UserEntity extends Entity<IUserParams> {
+  constructor (params: IUserParams, userId?: string) {
     super(params, userId)
   }
 

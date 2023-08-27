@@ -1,2 +1,3 @@
 import nodeMailerMock from "nodemailer-mock"
-export { nodeMailerMock }
+
+export default nodeMailerMock

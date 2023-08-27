@@ -1,11 +1,12 @@
-import { type IUser, inMemoryDatabase } from "../../in-memory-database"
-import { type IUsersRepository } from "../../../../application/interfaces/repositories"
+import { type User } from "@/application/interfaces/entities"
+import { inMemoryDatabase } from "../../in-memory-database"
 import {
+  type IUsersRepository,
   type IInputCreateUserRepositoryDTO,
   type IOutputCreateUserRepositoryDTO,
   type IInputFindUserRepositoryDTO,
   type IOutputFindUserRepositoryDTO
-} from "../../../../application/interfaces/dtos/repositories/users"
+} from "@/application/interfaces/repositories"
 
 export class InMemoryUsersRepository implements IUsersRepository {
   async create (input: IInputCreateUserRepositoryDTO): Promise<IOutputCreateUserRepositoryDTO> {
@@ -23,7 +24,7 @@ export class InMemoryUsersRepository implements IUsersRepository {
         (!input.password || user.password === input.password) &&
         (!input.profilePictureUrl ||
           user.profilePictureUrl === input.profilePictureUrl)
-    ) as IUser
+    ) as User
     return output ? [output] : []
   }
 }

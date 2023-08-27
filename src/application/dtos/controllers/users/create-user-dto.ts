@@ -1,13 +1,14 @@
 import { type Validate } from "@/application/helpers"
+import { type IOutputUseCaseErrorDTO } from "@/application/interfaces/errors/use-cases"
+import { type IOutputCreateUserUseCaseDTO } from "@/application/interfaces/use-cases"
 import { type IRequestCreateUserControllerDTO } from "@/application/interfaces/controllers"
-import { type IOutputUseCaseErrorDTO } from "@/application/interfaces/dtos/errors/use-cases"
-import { type IOutputCreateUserUseCaseDTO } from "@/application/interfaces/dtos/use-cases"
 import {
+  type ICreateUserDTO,
   type IOutputCreateUserInputDTO,
   type IOutputCreateUserOutputDTO
-} from "@/application/interfaces/dtos/controllers/users"
+} from "@/application/interfaces/dtos/controllers"
 
-export class CreateUserDTO {
+export class CreateUserDTO implements ICreateUserDTO {
   constructor (private readonly validate: Validate) {}
 
   input (request: IRequestCreateUserControllerDTO): IOutputCreateUserInputDTO {

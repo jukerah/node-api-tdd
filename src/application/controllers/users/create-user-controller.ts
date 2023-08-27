@@ -5,6 +5,7 @@ import {
   type IRequestCreateUserControllerDTO,
   type IResponseCreateUserControllerDTO
 } from "@/application/interfaces/controllers"
+import { badRequest } from "@/infra/http/adapters/http-response"
 
 export class CreateUserController implements ICreateUserController {
   constructor (
@@ -22,13 +23,7 @@ export class CreateUserController implements ICreateUserController {
       const output = this.createUserDTO.output(createdUser)
       return response.status(output.code).json(output)
     } catch (error: any) {
-      return response.status(400).json({
-        code: 400,
-        message: {
-          errorCode: "PARAMS_ERROR",
-          error: error.message
-        }
-      })
+      return response.status(400).json(badRequest(error.message))
     }
   }
 }

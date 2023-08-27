@@ -1,4 +1,4 @@
-import customError from "@/utils/errors/custom-error"
+import { customError } from "@/utils/errors/custom-error"
 
 describe("Custom Error", () => {
   it("should be able to create new error", async () => {

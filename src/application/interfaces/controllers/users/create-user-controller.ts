@@ -1,5 +1,13 @@
 import { type Request, type Response } from "@/infra/http/config"
-import { type IOutputUseCaseErrorDTO } from "@/application/interfaces/dtos/errors/use-cases"
+import { type IOutputUseCaseErrorDTO } from "@/application/interfaces/errors/use-cases"
+import { type IOutputCreateUserOutputDTO } from "../../dtos/controllers"
+
+export interface ICreateUserController {
+  handle: (
+    request: IRequestCreateUserControllerDTO,
+    response: IResponseCreateUserControllerDTO
+  ) => Promise<IResponseCreateUserControllerDTO>
+}
 
 export interface IRequestCreateUserControllerDTO extends Request {
   body: {
@@ -11,26 +19,5 @@ export interface IRequestCreateUserControllerDTO extends Request {
   }
 }
 
-export type IOutputCreateUserControllerDTO =
-  | IOutputUseCaseErrorDTO
-  | {
-    code: number
-    message: string
-    result: {
-      userId: string
-      fullName: string
-      age: number
-      username: string
-      profilePictureUrl: string
-    }
-  }
-
 export type IResponseCreateUserControllerDTO =
-  Response<IOutputCreateUserControllerDTO>
-
-export interface ICreateUserController {
-  handle: (
-    request: IRequestCreateUserControllerDTO,
-    response: IResponseCreateUserControllerDTO
-  ) => Promise<IResponseCreateUserControllerDTO>
-}
+  Response<IOutputCreateUserOutputDTO | IOutputUseCaseErrorDTO>

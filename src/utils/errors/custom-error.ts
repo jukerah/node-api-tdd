@@ -1,3 +1,3 @@
-export default function customError (error: string): Error {
+export const customError = (error: string): Error => {
   throw new Error(error)
 }

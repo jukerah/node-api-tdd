@@ -1,11 +1,11 @@
 import request from "supertest"
 import { app } from "@/__mocks__/app"
-import router from "@/infra/routes/__mocks__"
+import { routerMock } from "@/application/routes/__mocks__"
 import { isAuthenticatedMiddlewareMock } from "@/application/factories/__mocks__/middlewares"
 import { crypt } from "@/application/helpers"
 
 describe("Is authenticated middleware", () => {
-  router.get(
+  routerMock.get(
     "/api/v1/test-is-authenticated",
     isAuthenticatedMiddlewareMock(),
     (request, response) => {
@@ -33,7 +33,13 @@ describe("Is authenticated middleware", () => {
       .set("Authorization", `Bearer ${token}`)
 
     expect(sut.status).toBe(400)
-    expect(sut.body).toEqual("Usuário inválido!")
+    expect(sut.body).toEqual({
+      code: 400,
+      message: {
+        error: "Usuário inválido!",
+        errorCode: "PARAMS_ERROR"
+      }
+    })
   })
 
   it("should return status 400 if token is invalid", async () => {
@@ -43,6 +49,12 @@ describe("Is authenticated middleware", () => {
       .set("Authorization", "Bearer 321")
 
     expect(sut.status).toBe(400)
-    expect(sut.body).toEqual("Desculpa, mas você não está autenticado!")
+    expect(sut.body).toEqual({
+      code: 400,
+      message: {
+        error: "Desculpa, mas você não está autenticado!",
+        errorCode: "PARAMS_ERROR"
+      }
+    })
   })
 })

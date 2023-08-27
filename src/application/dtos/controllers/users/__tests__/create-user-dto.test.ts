@@ -1,7 +1,7 @@
 import {
   type IInputCreateUserUseCaseDTO,
   type IOutputCreateUserUseCaseDTO
-} from "@/application/interfaces/dtos/use-cases"
+} from "@/application/interfaces/use-cases"
 import { validateMock } from "@/application/factories/__mocks__/helpers"
 import { CreateUserDTO } from "@/application/dtos/controllers"
 

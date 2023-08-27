@@ -1,11 +1,11 @@
-import { type IUsersRepository } from "../../../../application/interfaces/repositories"
+import { prisma } from "@/infra/database/prisma"
 import {
+  type IUsersRepository,
   type IInputCreateUserRepositoryDTO,
   type IOutputCreateUserRepositoryDTO,
   type IInputFindUserRepositoryDTO,
   type IOutputFindUserRepositoryDTO
-} from "../../../../application/interfaces/dtos/repositories/users"
-import prisma from "../../prisma"
+} from "@/application/interfaces/repositories"
 
 export class PrismaUsersRepository implements IUsersRepository {
   async create (input: IInputCreateUserRepositoryDTO): Promise<IOutputCreateUserRepositoryDTO> {

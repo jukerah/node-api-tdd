@@ -1,8 +1,8 @@
+import { type Request } from "@/infra/http/config"
 import bcrypt from "@/libs/bcrypt"
 import crypto from "@/libs/crypto"
 import jwt from "@/libs/jsonwebtoken"
-import customError from "@/utils/errors/custom-error"
-import { type Request } from "@/infra/http/config"
+import { customError } from "@/utils/errors/custom-error"
 
 interface PayLoad {
   sub: string

@@ -12,7 +12,7 @@ export default {
   testRegex: ".test.ts",
   modulePathIgnorePatterns: ["/node_modules/", "/dist/"],
   moduleNameMapper: {
-    '@/tests/(.*)': '<rootDir>/__tests__/$1',
+    '@/__tests__/(.*)': '<rootDir>/__tests__/$1',
     '@/(.*)': '<rootDir>/src/$1'
   }
 }

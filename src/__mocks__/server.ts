@@ -1,4 +1,4 @@
-import { app } from "./app"
+import { app } from "@/__mocks__/app"
 
 const PORT = process.env.PORT ?? 3030
 
