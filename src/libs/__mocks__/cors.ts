@@ -5,6 +5,6 @@ const options: Cors.CorsOptions = {
   optionsSuccessStatus: 200
 }
 
-export const corsMock = Cors(options)
+const corsMock = Cors(options)
 
 export default corsMock

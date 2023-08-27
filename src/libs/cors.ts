@@ -5,6 +5,6 @@ const options: Cors.CorsOptions = {
   optionsSuccessStatus: 200
 }
 
-export const cors = Cors(options)
+const cors = Cors(options)
 
 export default cors

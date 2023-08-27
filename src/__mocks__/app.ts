@@ -1,3 +1,4 @@
+import "module-alias/register"
 import express from "express"
 import "express-async-errors"
 import corsMock from "@/libs/__mocks__/cors"
