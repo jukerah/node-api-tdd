@@ -14,7 +14,8 @@
     "test:e2e": "jest --config jest-e2e.config.ts",
     "test:ci": "yarn test -- --coverage --silent",
     "build": "rimraf dist && tsc -p tsconfig-build.json",
-    "lint": "eslint --fix 'src/**/*.ts'"
+    "lint": "eslint --fix 'src/**/*.ts'",
+    "prepare": "husky install"
   },
   "dependencies": {
     "bcrypt": "^5.1.0",
