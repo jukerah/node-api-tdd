@@ -1,4 +1,4 @@
-export interface IOutputUseCaseErrorDTO {
+export interface IOutputErrorDTO {
   code: number
   message: {
     errorCode: string

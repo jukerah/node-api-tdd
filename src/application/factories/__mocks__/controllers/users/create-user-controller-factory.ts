@@ -8,10 +8,10 @@ import { validateMock } from "@/application/factories/__mocks__/helpers"
 export const createUserControllerMock = (): any => {
   const userRepository = new InMemoryUsersRepository()
   const createUserUseCase = new CreateUserUseCase(userRepository)
-  const createUserController = new CreateUserController(
+  const controller = new CreateUserController(
     new CreateUserDTO(validateMock),
     createUserUseCase
   )
 
-  return httpControllerAdapter(createUserController)
+  return httpControllerAdapter(controller)
 }

@@ -8,10 +8,10 @@ import { validate } from "@/application/factories/helpers"
 export const createUserController = (): any => {
   const userRepository = new PrismaUsersRepository()
   const createUserUseCase = new CreateUserUseCase(userRepository)
-  const createUserController = new CreateUserController(
+  const controller = new CreateUserController(
     new CreateUserDTO(validate),
     createUserUseCase
   )
 
-  return httpControllerAdapter(createUserController)
+  return httpControllerAdapter(controller)
 }

@@ -1,5 +1,5 @@
 import { type Request, type Response } from "@/infra/http/config"
-import { type IOutputUseCaseErrorDTO } from "@/application/interfaces/errors/use-cases"
+import { type IOutputErrorDTO } from "@/application/interfaces/errors/error-dto"
 import { type IOutputCreateUserOutputDTO } from "../../dtos"
 
 export interface ICreateUserController {
@@ -20,4 +20,4 @@ export interface IRequestCreateUserControllerDTO extends Request {
 }
 
 export type IResponseCreateUserControllerDTO =
-  Response<IOutputCreateUserOutputDTO | IOutputUseCaseErrorDTO>
+  Response<IOutputCreateUserOutputDTO | IOutputErrorDTO>
