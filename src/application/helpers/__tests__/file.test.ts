@@ -9,7 +9,7 @@ describe("File", () => {
   let filePath = ""
 
   it("should be able to create buffer pdf", async () => {
-    const sut = await file.createBufferPdf(templatePdf()) as Buffer
+    const sut = await file.createBufferPdf(templatePdf())
 
     bufferPdf = sut
     expect(sut.byteLength).toEqual(11072)
@@ -25,6 +25,17 @@ describe("File", () => {
 
     expect(sut.message).toEqual("Arquivo criado com sucesso!")
     expect(validate.stringType(filePath)).toBeTruthy()
+  })
+
+  it("should be able to create pdf file", async () => {
+    const buffer: any = {}
+    const fileName = "file-name"
+    const path = "src/tmp/pdf"
+
+    const sut = await file.createFile(buffer, fileName, path)
+
+    // eslint-disable-next-line max-len
+    expect(sut.message).toBe("The \"data\" argument must be of type string or an instance of Buffer, TypedArray, or DataView. Received an instance of Object")
   })
 
   it("should be able to delete pdf", () => {

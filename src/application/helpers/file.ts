@@ -11,27 +11,21 @@ import {
 
 export const file: IFile = {
   createBufferPdf: async (template: Content): Promise<IOutputCreatePdf> => {
-    try {
-      const docDefinition: any = {
-        content: [template],
-        pageSize: "A4",
-        pageMargins: [20, 20, 20, 20]
-      }
-
-      const pdfDocGenerator = pdfMake.createPdf(docDefinition)
-
-      const buffer = await new Promise<Buffer>((resolve, reject) => {
-        pdfDocGenerator.getBuffer((buffer) => {
-          resolve(buffer)
-        })
-      })
-
-      return Buffer.from(buffer as any, "binary")
-    } catch (error: any) {
-      return {
-        message: error.message
-      }
+    const docDefinition: any = {
+      content: [template],
+      pageSize: "A4",
+      pageMargins: [20, 20, 20, 20]
     }
+
+    const pdfDocGenerator = pdfMake.createPdf(docDefinition)
+
+    const buffer = await new Promise<Buffer>((resolve, _reject) => {
+      pdfDocGenerator.getBuffer((buffer) => {
+        resolve(buffer)
+      })
+    })
+
+    return Buffer.from(buffer as any, "binary")
   },
 
   createFile: async (buffer: Buffer, fileName: string, path: string): Promise<IOutputCreateFile> => {
@@ -62,12 +56,7 @@ export const file: IFile = {
   },
 
   deleteFile: (filePath: string): string => {
-    try {
-      fs.unlinkSync(filePath)
-
-      return "Arquivo deletado com sucesso!"
-    } catch (error: any) {
-      return error.message
-    }
+    fs.unlinkSync(filePath)
+    return "Arquivo deletado com sucesso!"
   }
 }

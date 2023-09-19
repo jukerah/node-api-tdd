@@ -1,4 +1,4 @@
-export type IOutputCreatePdf = Buffer | { message: string }
+export type IOutputCreatePdf = Buffer
 
 export interface IOutputCreateFile {
   message: string
