@@ -5,23 +5,31 @@ import dotenv from "@/libs/dotenv"
 dotenv.config({ path: ".env.test" })
 
 describe("File", () => {
+  let bufferPdf: Buffer
   let filePath = ""
 
-  it("should be able to create pdf", async () => {
-    const fileName = "fileName"
+  it("should be able to create buffer pdf", async () => {
+    const sut = await file.createBufferPdf(templatePdf()) as Buffer
+
+    bufferPdf = sut
+    expect(sut.byteLength).toEqual(11072)
+  })
+
+  it("should be able to create pdf file", async () => {
+    const fileName = "file-name"
     const path = "src/tmp/pdf"
 
-    const sut = await file.createPdf(fileName, path, templatePdf())
+    const sut = await file.createFile(bufferPdf, fileName, path)
 
     filePath = sut.filePath as string
 
-    expect(sut.message).toEqual("Pdf criado com sucesso!")
+    expect(sut.message).toEqual("Arquivo criado com sucesso!")
     expect(validate.stringType(filePath)).toBeTruthy()
   })
 
   it("should be able to delete pdf", () => {
-    const sut = file.deletePdf(filePath)
+    const sut = file.deleteFile(filePath)
 
-    expect(sut).toEqual("Pdf deletado com sucesso!")
+    expect(sut).toEqual("Arquivo deletado com sucesso!")
   })
 })

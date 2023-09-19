@@ -5,7 +5,7 @@ export interface IDownloadPdfController {
   handle: (
     request: IRequestDownloadPdfControllerDTO,
     response: IResponseDownloadPdfControllerDTO
-  ) => IResponseDownloadPdfControllerDTO
+  ) => Promise<void>
 }
 
 export type IRequestDownloadPdfControllerDTO = Request
@@ -15,4 +15,4 @@ export interface IOutputDownloadPdfOutputDTO {
 }
 
 export type IResponseDownloadPdfControllerDTO =
-  Response<IOutputDownloadPdfOutputDTO | IOutputErrorDTO>
+  Response<Buffer | IOutputErrorDTO>

@@ -3,19 +3,14 @@ import {
   pdfMake,
   type Content
 } from "@/libs/pdfmake"
-
-interface IOutputCreatePdf {
-  message: string
-  filePath?: string
-}
-
-interface IFile {
-  createPdf: (fileName: string, path: string, template: Content) => Promise<IOutputCreatePdf>
-  deletePdf: (filePath: string) => string
-}
+import {
+  type IFile,
+  type IOutputCreatePdf,
+  type IOutputCreateFile
+} from "../interfaces/helpers"
 
 export const file: IFile = {
-  createPdf: async (fileName: string, path: string, template: Content): Promise<IOutputCreatePdf> => {
+  createBufferPdf: async (template: Content): Promise<IOutputCreatePdf> => {
     try {
       const docDefinition: any = {
         content: [template],
@@ -25,6 +20,22 @@ export const file: IFile = {
 
       const pdfDocGenerator = pdfMake.createPdf(docDefinition)
 
+      const buffer = await new Promise<Buffer>((resolve, reject) => {
+        pdfDocGenerator.getBuffer((buffer) => {
+          resolve(buffer)
+        })
+      })
+
+      return Buffer.from(buffer as any, "binary")
+    } catch (error: any) {
+      return {
+        message: error.message
+      }
+    }
+  },
+
+  createFile: async (buffer: Buffer, fileName: string, path: string): Promise<IOutputCreateFile> => {
+    try {
       const currentDate = new Date()
       const day = currentDate.getDate().toString().padStart(2, "0")
       const month = (currentDate.getMonth() + 1).toString().padStart(2, "0")
@@ -37,16 +48,10 @@ export const file: IFile = {
 
       const fullPath = `${path}/${fileName}-${formattedDate}.pdf`
 
-      const buffer = await new Promise<Buffer>((resolve, reject) => {
-        pdfDocGenerator.getBuffer((buffer) => {
-          resolve(buffer)
-        })
-      })
-
       await fs.promises.writeFile(fullPath, buffer)
 
       return {
-        message: "Pdf criado com sucesso!",
+        message: "Arquivo criado com sucesso!",
         filePath: fullPath
       }
     } catch (error: any) {
@@ -56,11 +61,11 @@ export const file: IFile = {
     }
   },
 
-  deletePdf: (filePath: string): string => {
+  deleteFile: (filePath: string): string => {
     try {
       fs.unlinkSync(filePath)
 
-      return "Pdf deletado com sucesso!"
+      return "Arquivo deletado com sucesso!"
     } catch (error: any) {
       return error.message
     }
