@@ -14,7 +14,7 @@ export class DownloadPdfController implements IDownloadPdfController {
   ): Promise<void> {
     try {
       const fileName = "file-name"
-      const bufferPdf = await file.createBufferPdf(templatePdf()) as Buffer
+      const bufferPdf = await file.createBufferPdf(templatePdf())
       response
         .setHeader("Content-Type", "application/pdf")
         .setHeader("Content-Disposition", `attachment; filename=${fileName}.pdf`)

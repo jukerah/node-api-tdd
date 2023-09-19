@@ -15,4 +15,4 @@ export interface IOutputDownloadPdfOutputDTO {
 }
 
 export type IResponseDownloadPdfControllerDTO =
-  Response<Buffer | IOutputErrorDTO>
+  Response<BinaryData | IOutputErrorDTO>

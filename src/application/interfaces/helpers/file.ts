@@ -1,4 +1,4 @@
-export type IOutputCreatePdf = Buffer
+export type IOutputCreatePdf = BinaryData
 
 export interface IOutputCreateFile {
   message: string
@@ -6,7 +6,7 @@ export interface IOutputCreateFile {
 }
 
 export interface IFile {
-  createBufferPdf: (template: any) => Promise<IOutputCreatePdf>
+  createBufferPdf: (template: any[]) => Promise<IOutputCreatePdf>
   createFile: (buffer: Buffer, fileName: string, path: string) => Promise<IOutputCreateFile>
   deleteFile: (filePath: string) => string
 }
